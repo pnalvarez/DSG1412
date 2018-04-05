@@ -31,9 +31,12 @@ void draw(){
   fill(#ffffff);
   ellipse(270,420,290,290);
   
+  putNumber(1);
+  
   changeSeconds();
   changeMinutes();
   changeHours();
+  changeMilis();
   
   ellipse(0,0,200,200);
 }
@@ -43,7 +46,7 @@ void changeSeconds(){
   translate(270,420);
   stroke(250,0,0);
   rotate(second()*PI/30);
-  line(0,0,0,-145);
+  line(0,0,0,-130);
   popMatrix();
 }
 void changeMinutes(){
@@ -67,6 +70,31 @@ void changeHours(){
     rotate(hour()*PI/30);
   
   line(0,0,0,-80);
+  
+  popMatrix();
+}
+
+void changeMilis(){
+  pushMatrix();
+  
+  translate(270,420);
+  stroke( #ffff00);
+  
+  rotate(millis()*PI/500);
+  
+  line(0,0,0,-145);
+  
+  popMatrix();
+}
+
+void putNumber(int num){
+  
+  pushMatrix();
+  
+  translate(270,420);
+  stroke(0);
+  rotate(num*PI/6);
+  text(num,0,-2);
   
   popMatrix();
 }
